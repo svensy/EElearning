@@ -1,0 +1,9 @@
+<div class="row">
+  <aside class="col-md-4">
+    <%= render 'shared/user_profile' if current_user != nil %>
+  </aside>
+  <div class="col-md-8">
+    <%= link_to "Words", words_path, class: "action-button shadow animate blue"  %>
+    <%= link_to "Lessons", '#', class: "action-button shadow animate blue"  %>  
+  </div>
+</div>
