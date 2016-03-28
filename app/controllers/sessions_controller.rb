@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def new
   end
 
@@ -7,10 +6,10 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:session][:email].downcase)
       respond_to do |format|
         if user && user.authenticate(params[:session][:password])
+          log_in user
           format.html do
-            log_in user
             params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-            redirect_to user
+            redirect_to root_url
           end
           format.json {render json: user.to_json, status: :ok}
         else

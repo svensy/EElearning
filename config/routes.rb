@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'sessions/new'
 
   root             'static_pages#home'
@@ -12,10 +11,13 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users
-  resources :words
+  resources :users do
+    resources :words
+    resources :lessons
+  end
+  
   resources :categories
-
+  
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource
