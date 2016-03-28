@@ -1,5 +1,7 @@
 Welcome to EElearning!
-First you need to install ruby 2.2.4p230 [i386-mingw32] for windows 7 32bit
+
+First you need to install ruby 2.2.4p230 [i386-mingw32] for windows 7 32bit.
+
 To clone:
 1) git clone https://github.com/svensy/EElearning.git
 2) bundle install
